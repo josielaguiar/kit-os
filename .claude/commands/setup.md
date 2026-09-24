@@ -77,6 +77,8 @@ Tentar ler, nessa ordem:
 1. `~/.claude/CLAUDE.md` — CLAUDE.md global (se existir)
 2. Arquivos de memória em `~/.claude/projects/` — procurar por arquivos relevantes (empresa, preferências, contexto)
 
+**Atenção se o usuário já usa o sistema pra mais de um negócio/projeto:** memória em `~/.claude/projects/` pode ter contexto de um negócio diferente do que está sendo configurado agora (ex: usuário já tem um workspace da Empresa A e está configurando o da Empresa B). Antes de apresentar qualquer coisa, checar se o que foi encontrado parece pertencer ao negócio que o usuário acabou de nomear na Pergunta 1 — se não bater, não misturar, tratar como não encontrado.
+
 Com o que encontrar, montar um resumo e apresentar ao usuário:
 
 > "Encontrei isso no que você já tem configurado:

@@ -35,7 +35,15 @@ Diga:
 > 3. Não inicialize com README — deixa vazio
 > 4. Me passa o link do repositório criado (ex: https://github.com/seunome/workspace)"
 
-Após receber o link, configure e envie:
+Após receber o link, primeiro garanta que existe um repositório local com pelo menos um commit (senão o `push` falha por não ter nada pra enviar):
+
+```bash
+git rev-parse --git-dir >/dev/null 2>&1 || git init -b main
+git add -A
+git commit -m "primeiro commit" --allow-empty-message 2>/dev/null || true
+```
+
+Só então configure o remote e envie:
 
 ```bash
 git remote add origin [link]
@@ -46,7 +54,7 @@ git push -u origin main
 Confirme:
 
 > "Conectado. Seu workspace está agora em [link].
-> A partir de agora, o sistema vai sincronizar automaticamente quando você terminar de trabalhar."
+> Sempre que quiser salvar de novo, é só rodar `/syncar` — isso não acontece sozinho, você decide quando."
 
 ---
 
