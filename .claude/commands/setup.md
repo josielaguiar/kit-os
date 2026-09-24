@@ -30,6 +30,27 @@ Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste t
 ### Pergunta 1
 "Qual é o seu nome e o nome do seu negócio?"
 
+### Passo — Confirmar a pasta do projeto
+
+Com o nome do negócio em mãos, derive um nome de pasta sugerido: `os-<negócio>` em minúsculas, espaços viram hífen, sem acento (ex: "Cocelpa" → `os-cocelpa`).
+
+Mostrar o caminho **completo e explícito** da pasta atual (onde a sessão abriu) e perguntar:
+
+> "Vou criar uma pasta nova chamada `os-<negócio>`, do lado de onde você está agora (`<caminho completo do pai>`). Quer que eu crie em outro lugar, ou pode ser aí mesmo?"
+
+**Nunca oferecer renomear a pasta atual.** Se essa pasta já estiver sincronizada (SharePoint/OneDrive) ou tiver qualquer outra coisa dependendo do caminho dela (link compartilhado, outro dispositivo com ela aberta, sincronização em andamento), renomear pode quebrar tudo isso. Criar uma pasta nova do zero não tem esse risco — nada preexistente depende ainda daquele caminho novo.
+
+Depois de confirmado o local:
+1. Criar a pasta nova
+2. Copiar o conteúdo do kit pra dentro dela (sem a pasta `.git` do kit — o projeto novo começa sem histórico de commit, pra não herdar nada do kit-base nem ficar preso ao remote dele)
+3. A pasta onde o kit foi clonado originalmente fica intacta, sem mexer — é só o clone temporário, descartável depois
+
+Avisar, antes de continuar pras próximas perguntas:
+
+> "Pronto — pasta criada em `<caminho completo da pasta nova>`. Depois que terminarmos aqui, feche essa sessão e abra o Claude Code de novo apontando pra essa pasta — ela continua rodando na pasta antiga até você reabrir lá."
+
+Continuar o restante do `/setup` normalmente (as próximas perguntas e a geração de arquivos no final acontecem já considerando a pasta nova como destino).
+
 ### Pergunta 2 — Verificação de histórico
 
 "Você já usa o Claude Code há algum tempo, ou é a primeira vez?"
